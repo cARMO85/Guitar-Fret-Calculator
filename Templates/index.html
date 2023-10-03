@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitar Fret Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='frets.css') }}">
+</head>
+<body>
+    <div class="outer-container">
+        <div class="container">
+            <h2>Guitar Fret Calculator</h2>
+            <form action="/" method="post">
+                <label for="unit">Unit:</label>
+                <select id="unit" name="unit">
+                    <option value="metric">cm</option>
+                    <option value="imperial">in</option>
+                </select><br><br>
+            
+                <label for="scale_length">Scale Length:</label>
+                <input type="number" step="0.01" id="scale_length" name="scale_length" required><br>
+            
+                <label for="frets">Number of Frets:</label>
+                <input type="number" id="frets" name="frets" required><br>
+            
+                <button type="submit">Calculate</button>
+            </form>
+            
+            <div class="distances">
+                {% for distance in distances %}
+                    <div>Fret {{ loop.index }}:</div>
+                    <div>{{ distance }} {{ 'cm' if unit == 'metric' else 'in' }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
