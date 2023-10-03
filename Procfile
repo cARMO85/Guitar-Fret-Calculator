@@ -1,1 +1,1 @@
-web: python your_flask_app_filename.py
+web: python fret_calculator.py
