@@ -1,5 +1,10 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
+import os
+
+
+
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -24,5 +29,7 @@ def calculate_fret_distances(scale_length, frets):
         distances.append(round(distance, 2))
     return distances
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
