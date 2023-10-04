@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-app = Flask(__name__, template_folder='/Users/paul/Documents/Project _work/Fret Calculator/templates')
+app = Flask(__name__, template_folder='/Users/paul/Documents/Project _work/Fret Calculator/Templates')
 import os
 
 
